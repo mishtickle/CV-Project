@@ -1,10 +1,12 @@
 import './App.css';
-import React, { Component } from 'react';
+import React from 'react';
+import PageDisplay from './components/PageDisplay';
 
 class App extends React.Component {
   render(){
     return (
       <div>
+        <PageDisplay/>
       </div>
     );
   }
