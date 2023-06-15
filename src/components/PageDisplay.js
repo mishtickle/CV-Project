@@ -4,22 +4,34 @@ import EducationalExperience from './EducationalExperience';
 import WorkExperience from './WorkExperience';
 
 class PageDisplay extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-        }
+    state = {
+        companyName: '',
+        positionTitle: '',
+        mainTasks: '',
+        datesWorked: '',
+        name: '',
+        email: '',
+        phone: '',
+        schoolName: '',
+        titleOfStudy: '',
+        dateOfStudy: ''
+    }
+
+    onChange(event) {
+        this.setState({[event.target.name]: event.target.value})
     }
 
     render() {
+        
         return(
             <div>
                 <h1>Curriculum Vitae</h1>
                 <h3>General Info</h3>
-                <GeneralInfo/>
+                <GeneralInfo onChange={this.onChange}/>
                 <h3>Educational Experience</h3>
-                <EducationalExperience/>
+                <EducationalExperience onChange={this.onChange}/>
                 <h3>Work Experience</h3>
-                <WorkExperience/>
+                <WorkExperience onChange={this.onChange}/>
             </div>
         )
     }

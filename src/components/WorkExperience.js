@@ -1,21 +1,8 @@
 import React from 'react';
 
 class WorkExperience extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            companyName: '',
-            positionTitle: '',
-            mainTasks: '',
-            datesWorked: ''
-        }
-        this.onChange = this.onChange.bind(this);
-    }
-
- 
-
     onChange(event) {
-        this.setState({[event.target.name]: event.target.value})
+        this.props.setState({[event.target.name]: event.target.value})
     }
 
     handleClick(e) {
