@@ -1,8 +1,13 @@
 import React from 'react';
 
 class EducationalExperience extends React.Component {
+    constructor(props){
+        super(props);
+        this.onChange =this.onChange.bind(this);
+    }
+    
     onChange(event) {
-        this.props.setState({[event.target.name]: event.target.value})
+        this.setState({[event.target.name]: event.target.value})
     }
 
     handleClick(e) {
@@ -11,7 +16,7 @@ class EducationalExperience extends React.Component {
     }
 
     render() {
-        const { schoolName, titleOfStudy, dateOfStudy } = this.state;
+        const { schoolName, titleOfStudy, dateOfStudy } = this.props;
         return(
             <>
                 <form label="Educational Experience" preventDefault>

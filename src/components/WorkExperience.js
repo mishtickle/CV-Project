@@ -1,8 +1,13 @@
 import React from 'react';
 
 class WorkExperience extends React.Component {
+    constructor(props){
+        super(props);
+        this.onChange =this.onChange.bind(this);
+    }
+    
     onChange(event) {
-        this.props.setState({[event.target.name]: event.target.value})
+        this.setState({[event.target.name]: event.target.value})
     }
 
     handleClick(e) {
@@ -11,7 +16,7 @@ class WorkExperience extends React.Component {
     }
 
     render() {
-        const { companyName, positionTitle, mainTasks, datesWorked } = this.state;
+        const { companyName, positionTitle, mainTasks, datesWorked } = this.props;
         return(
             <>
                 <form label="Work Experience" preventDefault>

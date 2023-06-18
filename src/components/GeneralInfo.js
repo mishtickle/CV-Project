@@ -1,8 +1,13 @@
 import React from 'react';
 
 class GeneralInfo extends React.Component {
+    constructor(props){
+        super(props);
+        this.onChange =this.onChange.bind(this);
+    }
+
     onChange(event) {
-        this.props.setState({[event.target.name]: event.target.value})
+        this.setState({[event.target.name]: event.target.value})
     }
 
     handleClick(e) {
@@ -11,7 +16,7 @@ class GeneralInfo extends React.Component {
     }
 
     render() {
-        const { name, email, phone } = this.state;
+        const { name, email, phone } = this.props;
         return(
             <>
                 <form label="General Info" preventDefault>

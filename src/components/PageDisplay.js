@@ -17,21 +17,17 @@ class PageDisplay extends React.Component {
         dateOfStudy: ''
     }
 
-    onChange(event) {
-        this.setState({[event.target.name]: event.target.value})
-    }
-
     render() {
-        
+        const { name, email, phone, schoolName, titleOfStudy, dateOfStudy, companyName, positionTitle, mainTasks, datesWorked } = this.state;
         return(
             <div>
                 <h1>Curriculum Vitae</h1>
                 <h3>General Info</h3>
-                <GeneralInfo onChange={this.onChange}/>
+                <GeneralInfo/>
                 <h3>Educational Experience</h3>
-                <EducationalExperience onChange={this.onChange}/>
+                <EducationalExperience/>
                 <h3>Work Experience</h3>
-                <WorkExperience onChange={this.onChange}/>
+                <WorkExperience/>
             </div>
         )
     }
