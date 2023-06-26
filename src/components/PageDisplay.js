@@ -15,6 +15,11 @@ class PageDisplay extends React.Component {
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
         this.onSubmitEducationTask = this.onSubmitEducationTask.bind(this);
+        this.handleCompanyChange = this.handleCompanyChange.bind(this);
+        this.handlePositionChange = this.handlePositionChange.bind(this);
+        this.handleTaskChange = this.handleTaskChange.bind(this);
+        this.handleDatesChange = this.handleDatesChange.bind(this);
+        this.onSubmitWork = this.onSubmitWork.bind(this);
         this.state = {     
             name: '',
             email: '',
@@ -31,6 +36,7 @@ class PageDisplay extends React.Component {
                 positionTitle: '',
                 mainTasks: '',
                 datesWorked: '',
+                id: uniqid()
             },
             workArray: []
         }
@@ -94,8 +100,70 @@ class PageDisplay extends React.Component {
         });
     };
 
+    handleCompanyChange(userCompany){
+        this.setState({
+            workExperience: {
+                companyName: userCompany,
+                positionTitle: this.state.workExperience.positionTitle,
+                mainTasks: this.state.workExperience.mainTasks,
+                datesWorked: this.state.workExperience.datesWorked,
+                id: this.state.workExperience.id
+            },
+        });
+    }
+
+    handlePositionChange(userPosition){
+        this.setState({
+            workExperience: {
+                companyName: this.state.workExperience.companyName,
+                positionTitle: userPosition,
+                mainTasks: this.state.workExperience.mainTasks,
+                datesWorked: this.state.workExperience.datesWorked,
+                id: this.state.workExperience.id
+            },
+        });
+    }
+
+    handleTaskChange(userTasks){
+        this.setState({
+            workExperience: {
+                companyName: this.state.workExperience.companyName,
+                positionTitle: this.state.workExperience.positionTitle,
+                mainTasks: userTasks,
+                datesWorked: this.state.workExperience.datesWorked,
+                id: this.state.workExperience.id
+            },
+        });
+    }
+
+    handleDatesChange(userDates){
+        this.setState({
+            workExperience: {
+                companyName: this.state.workExperience.companyName,
+                positionTitle: this.state.workExperience.positionTitle,
+                mainTasks: this.state.workExperience.mainTasks,
+                datesWorked: userDates,
+                id: this.state.workExperience.id
+            },
+        });
+    }
+
+    onSubmitWork = (event) => {    
+        event.preventDefault();
+        this.setState( {
+            workArray: this.state.workArray.concat(this.state.workExperience),
+            workExperience: {
+                companyName: '',
+                positionTitle: '',
+                mainTasks: '',
+                datesWorked: '',
+                id: uniqid()
+            },
+        });
+    };
+
     render() {
-        const { name, email, phone, educationalExperience, educationArray, companyName, positionTitle, mainTasks, datesWorked } = this.state;
+        const { name, email, phone, educationalExperience, educationArray, workExperience } = this.state;
         return(
             <div>
                 <h1>Curriculum Vitae</h1>
@@ -117,7 +185,16 @@ class PageDisplay extends React.Component {
                     onDateChange={this.handleDateChange}
                     submitEducationTask={this.onSubmitEducationTask}/>
                 <h3>Work Experience</h3>
-                <WorkExperience/>
+                <WorkExperience
+                    userCompany={workExperience.companyName}
+                    userPosition={workExperience.positionTitle}
+                    userTasks={workExperience.mainTasks}
+                    userDates={workExperience.datesWorked}
+                    onCompanyChange={this.handleCompanyChange}
+                    onPositionChange={this.handlePositionChange}
+                    onTasksChange={this.handleTaskChange}
+                    onDatesChange={this.handleDatesChange}
+                    submitWork={this.onSubmitWork}/>
                 <h1>Curriculum Vitae</h1>
                 <h3>General Info</h3>
                 <p>Name: {this.state.name}</p>

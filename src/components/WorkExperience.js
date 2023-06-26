@@ -3,32 +3,48 @@ import React from 'react';
 class WorkExperience extends React.Component {
     constructor(props){
         super(props);
-        this.onChange =this.onChange.bind(this);
-    }
-    
-    onChange(event) {
-        this.setState({[event.target.name]: event.target.value})
+        this.handleCompanyChange = this.handleCompanyChange.bind(this);
+        this.handlePositionChange = this.handlePositionChange.bind(this);
+        this.handleTasksChange = this.handleTasksChange.bind(this);
+        this.handleDatesChange = this.handleDatesChange.bind(this);
+        this.handleSubmitWork = this.handleSubmitWork.bind(this);
     }
 
-    handleClick(e) {
-        e.preventDefault();
-        console.log(this.state);
+    handleCompanyChange(event) {
+        this.props.onCompanyChange(event.target.value);
+    }
+
+    handlePositionChange(event) {
+        this.props.onPositionChange(event.target.value);
+    }
+
+    handleTasksChange(event) {
+        this.props.onTasksChange(event.target.value);
+    }
+
+    handleDatesChange(event) {
+        this.props.onDatesChange(event.target.value);
+    }
+
+    handleSubmitWork(event){
+        this.props.submitWork(event);
+        console.log(this.props);
     }
 
     render() {
-        const { companyName, positionTitle, mainTasks, datesWorked } = this.props;
+        const { userCompany, userPosition, userTasks, userDates } = this.props;
         return(
             <>
-                <form label="Work Experience">
-                    <input type = "text" placeholder="Company Name" name="companyName" value={companyName} onChange={this.onChange} />
+                <form onSubmit={this.handleSubmitWork} label="Work Experience">
+                    <input type = "text" placeholder="Company Name" name="userCompany" value={userCompany} onChange={this.handleCompanyChange} />
                     <br/>
-                    <input type = "text" placeholder="Position Title" name="positionTitle" value={positionTitle} onChange={this.onChange} />
+                    <input type = "text" placeholder="Position Title" name="userPosition" value={userPosition} onChange={this.handlePositionChange} />
                     <br/>
-                    <textarea placeholder="Main Tasks" name="mainTasks" value={mainTasks} onChange={this.onChange} />
+                    <textarea placeholder="Main Tasks" name="userTasks" value={userTasks} onChange={this.handleTasksChange}/>
                     <br/>
-                    <input type = "text" placeholder="Dates Worked" name="datesWorked" value={datesWorked} onChange={this.onChange} />
+                    <input type = "text" placeholder="Dates Worked" name="userDates" value={userDates} onChange={this.handleDatesChange} />
                     <br/>
-                    <button onClick={ (e) => this.handleClick(e)}>Submit</button>
+                    <button>Submit</button>
                 </form>
                 
             </>
