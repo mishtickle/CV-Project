@@ -19,7 +19,7 @@ class WorkExperience extends React.Component {
         const { companyName, positionTitle, mainTasks, datesWorked } = this.props;
         return(
             <>
-                <form label="Work Experience" preventDefault>
+                <form label="Work Experience">
                     <input type = "text" placeholder="Company Name" name="companyName" value={companyName} onChange={this.onChange} />
                     <br/>
                     <input type = "text" placeholder="Position Title" name="positionTitle" value={positionTitle} onChange={this.onChange} />
