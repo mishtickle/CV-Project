@@ -3,6 +3,7 @@ import GeneralInfo from './GeneralInfo.js';
 import EducationalExperience from './EducationalExperience';
 import WorkExperience from './WorkExperience';
 import DisplayEducation from './DisplayEducation.js';
+import DisplayWork from './DisplayWork.js';
 import uniqid from "uniqid";
 
 class PageDisplay extends React.Component {
@@ -163,7 +164,7 @@ class PageDisplay extends React.Component {
     };
 
     render() {
-        const { name, email, phone, educationalExperience, educationArray, workExperience } = this.state;
+        const { name, email, phone, educationalExperience, educationArray, workExperience, workArray } = this.state;
         return(
             <div>
                 <h1>Curriculum Vitae</h1>
@@ -203,6 +204,7 @@ class PageDisplay extends React.Component {
                 <h3>Educational Experience</h3>
                 <DisplayEducation myArray={educationArray}/>
                 <h3>Work Experience</h3>
+                <DisplayWork workArray={workArray}/>
             </div>
         )
     }
