@@ -198,9 +198,9 @@ class PageDisplay extends React.Component {
                     submitWork={this.onSubmitWork}/>
                 <h1>Curriculum Vitae</h1>
                 <h3>General Info</h3>
-                <p>Name: {this.state.name}</p>
-                <p>Email: {this.state.email}</p>
-                <p>Phone: {this.state.phone}</p>
+                <p contentEditable>Name: {this.state.name}</p>
+                <p contentEditable>Email: {this.state.email}</p>
+                <p contentEditable>Phone: {this.state.phone}</p>
                 <h3>Educational Experience</h3>
                 <DisplayEducation myArray={educationArray}/>
                 <h3>Work Experience</h3>

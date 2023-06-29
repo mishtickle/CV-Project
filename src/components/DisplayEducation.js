@@ -7,9 +7,9 @@ class DisplayEducation extends React.Component {
             <>
                 {myArray.map((arrayObject) => {
                     return <>                            
-                            <p>{arrayObject.schoolName}</p>
-                            <p>{arrayObject.titleOfStudy}</p>
-                            <p>{arrayObject.dateOfStudy}</p>
+                            <p contentEditable>{arrayObject.schoolName}</p>
+                            <p contentEditable>{arrayObject.titleOfStudy}</p>
+                            <p contentEditable>{arrayObject.dateOfStudy}</p>
                             <br></br>
                         </>
                 })}        

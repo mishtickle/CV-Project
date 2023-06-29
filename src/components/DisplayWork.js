@@ -7,11 +7,11 @@ class DisplayWork extends React.Component {
             <>
                 {workArray.map((arrayObject) => {
                     return <>                            
-                            <p>{arrayObject.companyName}</p>
-                            <p>{arrayObject.positionTitle}</p>
+                            <p contentEditable>{arrayObject.companyName}</p>
+                            <p contentEditable>{arrayObject.positionTitle}</p>
                             <p>Tasks:</p>
-                            <p>{arrayObject.mainTasks}</p>
-                            <p>{arrayObject.datesWorked}</p>
+                            <p contentEditable>{arrayObject.mainTasks}</p>
+                            <p contentEditable>{arrayObject.datesWorked}</p>
                             <br></br>
                         </>
                 })}        
